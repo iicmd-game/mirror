@@ -9,6 +9,7 @@ public class Faith_controller : MonoBehaviour
     public  bool isRight = true;
     public float move;
     public float Yspeed;
+    
     Animator anim;
 
     //ground
@@ -17,7 +18,7 @@ public class Faith_controller : MonoBehaviour
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     ///////////////////// 
-    bool canRoll = false;
+    public bool canRoll = false;
     public Transform rollCheck;
     float rollRadius = 0.2f;
     public bool isRoll = false; 
