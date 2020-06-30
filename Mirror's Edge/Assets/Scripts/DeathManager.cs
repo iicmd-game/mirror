@@ -36,7 +36,7 @@ public class DeathManager : MonoBehaviour
     }
     private void death()
     {
-        respawn = cs.CheckPointPosition();
+        respawn = cs.CheckPointPosition(); // берем точку респавна из скрипта для чекпоинтов
         faith.transform.position = respawn.transform.position;
     }
 }

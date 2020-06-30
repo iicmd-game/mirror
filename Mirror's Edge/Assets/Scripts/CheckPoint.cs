@@ -14,6 +14,7 @@ public class CheckPoint : MonoBehaviour
         respawn = GameObject.FindGameObjectWithTag("Respawn");
     }
 
+    // активируем чекпоинт
     private void ActivateCheckPoint()
     {
         foreach (GameObject cp in CheckPointList)
@@ -32,6 +33,7 @@ public class CheckPoint : MonoBehaviour
         }
     }
 
+    // выдаем объект который является активным чекпоинтом
     public GameObject CheckPointPosition()
     {
         GameObject result = respawn;
