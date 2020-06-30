@@ -8,8 +8,10 @@ public class DeathManager : MonoBehaviour
     public GameObject respawn;
     public Faith_controller fc;
     public GameObject faith;
+    public CheckPoint cs;
     public bool isGrounded;
     public bool isRoll;
+
     private void Start()
     {
         fc = faith.GetComponent<Faith_controller>();
@@ -34,6 +36,7 @@ public class DeathManager : MonoBehaviour
     }
     private void death()
     {
+        respawn = cs.CheckPointPosition();
         faith.transform.position = respawn.transform.position;
     }
 }
