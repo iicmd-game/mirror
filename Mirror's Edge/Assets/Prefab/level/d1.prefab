@@ -121,7 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yspeed: 0
   respawn: {fileID: 0}
-  fc: {fileID: 0}
+  fc: {fileID: 2702882534545046983, guid: bbdcf3f2432de51408dd7faf9392cf95, type: 3}
   faith: {fileID: 0}
+  cs: {fileID: 0}
   isGrounded: 0
   isRoll: 0

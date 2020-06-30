@@ -295,8 +295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yspeed: 0
   respawn: {fileID: 510505405}
-  fc: {fileID: 0}
+  fc: {fileID: 430895494}
   faith: {fileID: 430895493}
+  cs: {fileID: 0}
   isGrounded: 0
   isRoll: 0
 --- !u!61 &107527356
@@ -895,6 +896,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2702882534131551308}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &430895494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2702882534545046983, guid: bbdcf3f2432de51408dd7faf9392cf95,
+    type: 3}
+  m_PrefabInstance: {fileID: 2702882534131551308}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430895493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f7fa0644fac2742847d35ef51f722a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &471282989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,8 +1034,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yspeed: 0
   respawn: {fileID: 510505405}
-  fc: {fileID: 0}
+  fc: {fileID: 430895494}
   faith: {fileID: 430895493}
+  cs: {fileID: 0}
   isGrounded: 0
   isRoll: 0
 --- !u!61 &471462529
@@ -3843,8 +3857,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Yspeed: 0
   respawn: {fileID: 510505405}
-  fc: {fileID: 0}
+  fc: {fileID: 430895494}
   faith: {fileID: 430895493}
+  cs: {fileID: 0}
   isGrounded: 0
   isRoll: 0
 --- !u!61 &2122518870
@@ -3998,6 +4013,16 @@ PrefabInstance:
       propertyPath: faith
       value: 
       objectReference: {fileID: 430895493}
+    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
+        type: 3}
+      propertyPath: fc
+      value: 
+      objectReference: {fileID: 430895494}
+    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
+        type: 3}
+      propertyPath: cs
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea9485104d72f044beb72be7c09ab2d, type: 3}
 --- !u!1001 &2692190217930492373
@@ -4139,6 +4164,16 @@ PrefabInstance:
     - target: {fileID: 2702882534545046980, guid: bbdcf3f2432de51408dd7faf9392cf95,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702882534545046982, guid: bbdcf3f2432de51408dd7faf9392cf95,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702882534545046982, guid: bbdcf3f2432de51408dd7faf9392cf95,
+        type: 3}
+      propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4420,6 +4455,11 @@ PrefabInstance:
     - target: {fileID: 8699030033354901744, guid: 24e8e00d34763cc41a8d439fbf2b9967,
         type: 3}
       propertyPath: m_Name
+      value: Respawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699030033354901744, guid: 24e8e00d34763cc41a8d439fbf2b9967,
+        type: 3}
+      propertyPath: m_TagString
       value: Respawn
       objectReference: {fileID: 0}
     - target: {fileID: 8699030033354901747, guid: 24e8e00d34763cc41a8d439fbf2b9967,
