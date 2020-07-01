@@ -11,6 +11,8 @@ public class CameraFollow2D : MonoBehaviour
     private Transform player;
     public float damping = 1.5f;
     private int lastX;
+    public GameObject myCamera;
+    public Camera camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,16 +20,17 @@ public class CameraFollow2D : MonoBehaviour
         isRight = fc.isRight;
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
         FindPlayer(isRight);
+        camera = myCamera.GetComponent<Camera>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+        camera.orthographicSize = 10 + Mathf.Abs(fc.move * 4); // Чем быстрее бежит гг, тем сильнее отдаляется камера
         isRight = fc.isRight;
         if (player)
         {
             lastX = Mathf.RoundToInt(player.position.x);
-
             Vector3 target;
             if (isRight)
             {
