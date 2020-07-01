@@ -6,6 +6,7 @@ public class Faith_controller : MonoBehaviour
 {
     Rigidbody2D rigidBody;
     public float moveSpeed = 10f;
+    public float startMoveSpeed = 10f;
     public  bool isRight = true;
     public float move;
     public float Yspeed;
@@ -15,13 +16,14 @@ public class Faith_controller : MonoBehaviour
     //ground
     public bool isGrounded = false;
     public Transform groundCheck;
-    float groundRadius = 0.2f;
+    float groundRadius = 0.4f;
     public LayerMask whatIsGround;
     ///////////////////// 
     public bool canRoll = false;
     public Transform rollCheck;
     float rollRadius = 0.2f;
-    public bool isRoll = false; 
+    public bool isRoll = false;
+    public float realx;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +48,24 @@ public class Faith_controller : MonoBehaviour
         anim.SetFloat("Faith_speed", Mathf.Abs(move));
         anim.SetFloat("Yspeed", rigidBody.velocity.y);//действие гравитации на гг
         Yspeed = rigidBody.velocity.y;
-        rigidBody.velocity = new Vector2(move * moveSpeed , rigidBody.velocity.y);//устанавливаем скорость гг
+
+        ////////////////
+        float move1;
+        move1 = Input.GetAxis("Horizontal");
+        if (Mathf.Abs(move1) < 0.15)
+            rigidBody.velocity = new Vector2(10 * move * moveSpeed, rigidBody.velocity.y);
+        else if (Mathf.Abs(move) < 0.25)
+        rigidBody.velocity = new Vector2(5 * move * moveSpeed , rigidBody.velocity.y);//устанавливаем скорость гг
+        else if (Mathf.Abs(move) < 0.5)
+            rigidBody.velocity = new Vector2(3.5f * move * moveSpeed, rigidBody.velocity.y);
+        else if (Mathf.Abs(move) < 1 && move < 0)
+            rigidBody.velocity = new Vector2(2.5f * -0.75f * moveSpeed, rigidBody.velocity.y);
+        else if (Mathf.Abs(move) < 1 && move > 0)
+            rigidBody.velocity = new Vector2(2.5f * 0.75f * moveSpeed, rigidBody.velocity.y);
+        else if (Mathf.Abs(move) == 1)
+            rigidBody.velocity = new Vector2(2.5f * move * moveSpeed, rigidBody.velocity.y);
+        realx = rigidBody.velocity.x;
+        ////////////////
         if (move > 0 && !isRight)//поворот
             Flip();
         else if (move < 0 && isRight)
@@ -77,7 +96,7 @@ public class Faith_controller : MonoBehaviour
     }
     void Update()
     {
-        if(isGrounded && Input.GetKeyDown(KeyCode.Space))//если под ногами земля можно прыгнуть
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space))//если под ногами земля можно прыгнуть
         {
             anim.SetBool("Grounded", false);
             rigidBody.AddForce(new Vector2(0, 1000));
