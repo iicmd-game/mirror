@@ -9,7 +9,7 @@ public class Game_Manager : MonoBehaviour
     public Faith_controller fc;
     public void Load()
     {
-        PlayerPrefs.DeleteKey("MESave");
+        PlayerPrefs.DeleteKey("MESave");        //удаление сохранения
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void QuitGame()
@@ -27,13 +27,14 @@ public class Game_Manager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    //сохранение данных
     public void Save()
     {
         string key = "MESave";
         SaveData data = new SaveData();
         data.playerPosition = cp.CheckPointPosition().transform.position;
         data.levelNumber = SceneManager.GetActiveScene().buildIndex;
-        data.isRight = fc.isRight;
 
         string value = JsonUtility.ToJson(data);
 
@@ -42,6 +43,7 @@ public class Game_Manager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    //загрузка номера уровня
     public void LoadFromSave()
     {
         string key = "MESave";

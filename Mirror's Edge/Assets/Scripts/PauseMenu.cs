@@ -5,8 +5,10 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseMenuUI;
+    public GameObject DeathMenuUI;
     public bool isPaused;
     public Game_Manager gm;
+    public DeathManager dm;
 
     private void Update()
     {
@@ -50,5 +52,15 @@ public class PauseMenu : MonoBehaviour
         gm.Save();
         Time.timeScale = 1f;
         gm.QuitGame();
+    }
+
+    public void Dead()
+    {
+        DeathMenuUI.SetActive(true);
+    }
+    public void Retry()
+    {
+        dm.RespawnCharacter();
+        DeathMenuUI.SetActive(false);
     }
 }

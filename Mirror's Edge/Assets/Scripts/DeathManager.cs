@@ -12,9 +12,13 @@ public class DeathManager : MonoBehaviour
     public bool isGrounded;
     public bool isRoll;
 
+    public PauseMenu pm;
+    public bool isDead;
+
     private void Start()
     {
         fc = faith.GetComponent<Faith_controller>();
+        isDead = false;
     }
     private void Update()
     {
@@ -34,9 +38,20 @@ public class DeathManager : MonoBehaviour
             death();
         }
     }
-    private void death()
+
+    //вызов функции для показа меню смерти
+    public void death()
+    {
+        isDead = true;
+        pm.Dead();
+        
+    }
+
+    public void RespawnCharacter()
     {
         respawn = cs.CheckPointPosition(); // берем точку респавна из скрипта для чекпоинтов
+        fc.Freeze();
         faith.transform.position = respawn.transform.position;
+        isDead = false;
     }
 }
