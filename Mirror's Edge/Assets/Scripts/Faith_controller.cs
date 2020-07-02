@@ -111,6 +111,8 @@ public class Faith_controller : MonoBehaviour
         }
     }
 
+
+    //перемещение персонажа если есть сохранение
     void SaveNewGameCheck()
     {
         string key = "MESave";
@@ -119,7 +121,12 @@ public class Faith_controller : MonoBehaviour
             string value = PlayerPrefs.GetString(key);
             SaveData data = JsonUtility.FromJson<SaveData>(value);
             transform.position = data.playerPosition;
-            isRight = data.isRight;
         }
+    }
+
+    //остановка песонажа перед перемещением на чекпоинт в случае смерти
+    public void Freeze()
+    {
+        rigidBody.velocity = Vector2.zero;
     }
 }

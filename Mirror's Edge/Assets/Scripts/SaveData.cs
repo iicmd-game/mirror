@@ -6,5 +6,4 @@ public class SaveData
 {
     public Vector2 playerPosition;
     public int levelNumber;
-    public bool isRight;
 }
