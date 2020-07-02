@@ -16,12 +16,12 @@ public class Faith_controller : MonoBehaviour
     //ground
     public bool isGrounded = false;
     public Transform groundCheck;
-    float groundRadius = 0.4f;
+    float groundRadius = 0.3f;
     public LayerMask whatIsGround;
     ///////////////////// 
     public bool canRoll = false;
     public Transform rollCheck;
-    float rollRadius = 0.2f;
+    float rollRadius = 0.4f;
     public bool isRoll = false;
     public float realx;
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class Faith_controller : MonoBehaviour
     void FixedUpdate()
     {
         Run();
-        GroundAndRollCheck();
+        
     }
     // Update is called once per frame
     public void Flip()//Проверяем куда смотрит гг и поворачиваем её в обратную сторону
@@ -65,6 +65,7 @@ public class Faith_controller : MonoBehaviour
             rigidBody.velocity = new Vector2(2.5f * 0.75f * moveSpeed, rigidBody.velocity.y);
         else if (Mathf.Abs(move) == 1)
             rigidBody.velocity = new Vector2(2.5f * move * moveSpeed, rigidBody.velocity.y);
+        if (rigidBody.velocity.x > 25 || rigidBody.velocity.x < -25) rigidBody.velocity = new Vector2(2.5f * move * moveSpeed, rigidBody.velocity.y);// Костыль против черезмерной распрыжки
         realx = rigidBody.velocity.x;
         ////////////////
         if (move > 0 && !isRight)//поворот
@@ -75,19 +76,23 @@ public class Faith_controller : MonoBehaviour
     void GroundAndRollCheck() {//проверяем с помощью кружка есть ли под ногами земля
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Grounded", isGrounded);
-        if (!isGrounded)
-            return;
+      //  if (!isGrounded)
+     //       return;
         if (Yspeed == 0)
         {
             anim.SetBool("Roll", false);
-        }
-        if (Yspeed > 0)
-        {
             canRoll = false;
         }
+         if (Yspeed > 0)
+           {
+               canRoll = false; 
+           }
+           
+        // if (Yspeed != 0)
         if (Yspeed < 0)
         {
-            canRoll = Physics2D.OverlapCircle(rollCheck.position, rollRadius, whatIsGround);//Если героиня падает вниз, то можно совершить кувырок
+            //canRoll = true;
+            canRoll = Physics2D.OverlapCircle(rollCheck.position, rollRadius, whatIsGround);//Если героиня паает и под ней земля , то можно совершить кувырок
         }
     }
     void Isroll()
@@ -97,6 +102,11 @@ public class Faith_controller : MonoBehaviour
     }
     void Update()
     {
+        GroundAndRollCheck();
+        if (rigidBody.velocity.y < -40)
+        {
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, -40);
+        }
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))//если под ногами земля можно прыгнуть
         {
             anim.SetBool("Grounded", false);
