@@ -29,6 +29,7 @@ public class Faith_controller : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
+        SaveNewGameCheck();
     }
     void FixedUpdate()
     {
@@ -107,6 +108,18 @@ public class Faith_controller : MonoBehaviour
             isRoll = true;
             anim.SetBool("isRoll", true);
             Invoke("Isroll", 1.3f);
+        }
+    }
+
+    void SaveNewGameCheck()
+    {
+        string key = "MESave";
+        if (PlayerPrefs.HasKey(key))
+        {
+            string value = PlayerPrefs.GetString(key);
+            SaveData data = JsonUtility.FromJson<SaveData>(value);
+            transform.position = data.playerPosition;
+            isRight = data.isRight;
         }
     }
 }

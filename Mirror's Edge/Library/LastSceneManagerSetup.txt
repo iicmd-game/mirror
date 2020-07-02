@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Prefab/Scenes/SpeedTest.unity
+- path: Assets/Prefab/Scenes/Main_menu.unity
   isLoaded: 1
   isActive: 1
