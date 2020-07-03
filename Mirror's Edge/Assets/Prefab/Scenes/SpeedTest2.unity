@@ -3289,7 +3289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 1.3358926
+  m_AspectRatio: 1.4111675
 --- !u!1001 &1352012605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5669,6 +5669,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: d1
       objectReference: {fileID: 0}
+    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
+        type: 3}
+      propertyPath: respawn
+      value: 
+      objectReference: {fileID: 510505405}
+    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
+        type: 3}
+      propertyPath: faith
+      value: 
+      objectReference: {fileID: 430895493}
+    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
+        type: 3}
+      propertyPath: fc
+      value: 
+      objectReference: {fileID: 430895494}
+    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
+        type: 3}
+      propertyPath: cs
+      value: 
+      objectReference: {fileID: 689073158}
+    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
+        type: 3}
+      propertyPath: pm
+      value: 
+      objectReference: {fileID: 578571080}
     - target: {fileID: 2630799075033945126, guid: cea9485104d72f044beb72be7c09ab2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5724,40 +5749,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
-        type: 3}
-      propertyPath: respawn
-      value: 
-      objectReference: {fileID: 510505405}
-    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
-        type: 3}
-      propertyPath: faith
-      value: 
-      objectReference: {fileID: 430895493}
-    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
-        type: 3}
-      propertyPath: fc
-      value: 
-      objectReference: {fileID: 430895494}
-    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
-        type: 3}
-      propertyPath: cs
-      value: 
-      objectReference: {fileID: 689073158}
-    - target: {fileID: 2630799075033945131, guid: cea9485104d72f044beb72be7c09ab2d,
-        type: 3}
-      propertyPath: pm
-      value: 
-      objectReference: {fileID: 578571080}
     - target: {fileID: 2630799075033945129, guid: cea9485104d72f044beb72be7c09ab2d,
         type: 3}
       propertyPath: m_Size.x
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2630799075033945129, guid: cea9485104d72f044beb72be7c09ab2d,
         type: 3}
       propertyPath: m_Offset.y
-      value: -1
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea9485104d72f044beb72be7c09ab2d, type: 3}
