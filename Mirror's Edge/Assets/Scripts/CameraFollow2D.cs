@@ -12,7 +12,7 @@ public class CameraFollow2D : MonoBehaviour
     public float damping = 1.5f;
     private int lastX;
     public GameObject myCamera;
-    public Camera camera;
+    public Camera ccamera;
 
     public DeathManager dm;
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class CameraFollow2D : MonoBehaviour
         isRight = fc.isRight;
         offset = new Vector2(Mathf.Abs(offset.x), offset.y);
         FindPlayer(isRight);
-        camera = myCamera.GetComponent<Camera>();
+        ccamera = myCamera.GetComponent<Camera>();
     }
     
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class CameraFollow2D : MonoBehaviour
     {
         if (!dm.isDead)
         {
-            camera.orthographicSize = 10 + Mathf.Abs(fc.move * 4); // Чем быстрее бежит гг, тем сильнее отдаляется камера
+            ccamera.orthographicSize = 10 + Mathf.Abs(fc.move * 4); // Чем быстрее бежит гг, тем сильнее отдаляется камера
             isRight = fc.isRight;
             if (player)
             {
