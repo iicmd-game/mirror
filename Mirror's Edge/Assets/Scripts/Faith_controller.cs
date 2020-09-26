@@ -52,20 +52,21 @@ public class Faith_controller : MonoBehaviour
 
         ////////////////
         float move1;
-        move1 = Input.GetAxis("Horizontal");
-        if (Mathf.Abs(move1) < 0.15)
-            rigidBody.velocity = new Vector2(10 * move * moveSpeed, rigidBody.velocity.y);
-        else if (Mathf.Abs(move) < 0.25)
-        rigidBody.velocity = new Vector2(5 * move * moveSpeed , rigidBody.velocity.y);//устанавливаем скорость гг
-        else if (Mathf.Abs(move) < 0.5)
-            rigidBody.velocity = new Vector2(3.5f * move * moveSpeed, rigidBody.velocity.y);
-        else if (Mathf.Abs(move) < 1 && move < 0)
-            rigidBody.velocity = new Vector2(2.5f * -0.75f * moveSpeed, rigidBody.velocity.y);
-        else if (Mathf.Abs(move) < 1 && move > 0)
-            rigidBody.velocity = new Vector2(2.5f * 0.75f * moveSpeed, rigidBody.velocity.y);
-        else if (Mathf.Abs(move) == 1)
-            rigidBody.velocity = new Vector2(2.5f * move * moveSpeed, rigidBody.velocity.y);
-        if (rigidBody.velocity.x > 25 || rigidBody.velocity.x < -25) rigidBody.velocity = new Vector2(2.5f * move * moveSpeed, rigidBody.velocity.y);// Костыль против черезмерной распрыжки
+        
+            move1 = Input.GetAxis("Horizontal");
+            if (Mathf.Abs(move1) < 0.15)
+                rigidBody.velocity = new Vector2(10 * move * moveSpeed, rigidBody.velocity.y);
+            else if (Mathf.Abs(move) < 0.25)
+                rigidBody.velocity = new Vector2(5 * move * moveSpeed, rigidBody.velocity.y);//устанавливаем скорость гг
+            else if (Mathf.Abs(move) < 0.5)
+                rigidBody.velocity = new Vector2(3.5f * move * moveSpeed, rigidBody.velocity.y);
+            else if (Mathf.Abs(move) < 1 && move < 0)
+                rigidBody.velocity = new Vector2(2.5f * -0.75f * moveSpeed, rigidBody.velocity.y);
+            else if (Mathf.Abs(move) < 1 && move > 0)
+                rigidBody.velocity = new Vector2(2.5f * 0.75f * moveSpeed, rigidBody.velocity.y);
+            else if (Mathf.Abs(move) == 1)
+                rigidBody.velocity = new Vector2(2.5f * move * moveSpeed, rigidBody.velocity.y);
+            if (rigidBody.velocity.x > 25 || rigidBody.velocity.x < -25) rigidBody.velocity = new Vector2(2.5f * move * moveSpeed, rigidBody.velocity.y);// Костыль против черезмерной распрыжки
         realx = rigidBody.velocity.x;
         ////////////////
         if (move > 0 && !isRight)//поворот

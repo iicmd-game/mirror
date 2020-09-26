@@ -15,6 +15,7 @@ public class CameraFollow2D : MonoBehaviour
     public Camera ccamera;
 
     public DeathManager dm;
+    private bool isded;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,8 @@ public class CameraFollow2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dm.isDead)
+        isded = dm.isDead;
+        if (!isded)
         {
             ccamera.orthographicSize = 10 + Mathf.Abs(fc.move * 4); // Чем быстрее бежит гг, тем сильнее отдаляется камера
             isRight = fc.isRight;
